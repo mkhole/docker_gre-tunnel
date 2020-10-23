@@ -30,6 +30,8 @@ case "$ENV_GRE_TYPE" in
 		ip tunnel add $GRE_TUNNEL_INTF mode gre remote $ENV_REMOTE_IP local $PRIVATE_IP ttl 255
 		;;
 	*)
+		echo "Unknown GRE type."
+		exit 1
 		;;
 esac
 
