@@ -15,7 +15,6 @@ fi
 
 IPTABLE_RULE="-s ${ENV_REMOTE_IP}/32 -o docker0 -p gre -j ACCEPT"
 if iptables -N DOCKER > /dev/null 2>&1; then
-	iptables -N DOCKER
 	iptables -A DOCKER ${IPTABLE_RULE}
 else
 	if ! iptables -S | grep -e "${IPTABLE_RULE}" > /dev/null 2>&1; then
